@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khalil Rahman's Portfolio</title>
+    <style>
+        /* Reset default margins */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+
+        /* Welcome screen background */
+        #welcome-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #111111; /* Dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Fade-in effect for welcome text */
+        #welcome {
+            font-size: 24px;
+            color: #fff; /* White text */
+            opacity: 0;
+            animation: fadeIn 3s ease forwards;
+        }
+
+        /* Fade-in keyframe animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Page layout after animation */
+        #content {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Link styles */
+        .link {
+            margin: 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .link:hover {
+            color: #0056b3;
+        }
+
+        /* PDF section */
+        #pdf-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #pdf-cover {
+            width: 300px;
+            height: 400px;
+            background-image: url('./cover.jpg'); /* Replace with actual cover image */
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #ddd;
+        }
+
+        #pdf-actions {
+            margin-left: 20px;
+        }
+
+        #view-pdf-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        #view-pdf-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome screen with fade-in animation -->
+    <div id="welcome-screen">
+        <div id="welcome">Welcome, this is Khalil Rahman's Portfolio</div>
+    </div>
+
+    <!-- Content to display after welcome animation -->
+    <div id="content">
+        <a href="https://rahmandesignsportfolio.netlify.app/" target="_blank" class="link">Website</a>
+        <a href="https://www.instagram.com/rahman.archviz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="link">Instagram</a>
+
+        <div id="pdf-section">
+            <div id="pdf-cover"></div>
+            <div id="pdf-actions">
+                <h2>Portfolio PDF</h2>
+                <button id="view-pdf-btn">View</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait 3 seconds for fade-in animation to finish, then show the rest of the page content
+        setTimeout(() => {
+            document.getElementById('welcome-screen').style.display = 'none'; // Hide welcome screen
+            document.getElementById('content').style.display = 'block'; // Show the main content
+        }, 3000);
+
+        // JavaScript to open PDF in a new tab
+        document.getElementById('view-pdf-btn').addEventListener('click', () => {
+            window.open('Arch Portfolio.pdf', '_blank'); // Replace with actual PDF link
+        });
+    </script>
+
+</body>
+</html>
